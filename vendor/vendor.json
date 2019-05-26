@@ -21,6 +21,12 @@
 			"revisionTime": "2019-05-08T07:12:19Z"
 		},
 		{
+			"checksumSHA1": "4eelJOSLZoDzLuaJvgilOBVNovU=",
+			"path": "github.com/jinzhu/inflection",
+			"revision": "04140366298a54a039076d798123ffa108fff46c",
+			"revisionTime": "2018-03-08T03:36:59Z"
+		},
+		{
 			"checksumSHA1": "aw60jWFidzTWESLRrQs8ZYpcK84=",
 			"path": "github.com/labstack/echo",
 			"revision": "fbb72869b3b3a96631dd8c98d755efa7bc63c362",
