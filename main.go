@@ -45,8 +45,8 @@ func main() {
 	e.POST("/newidea", addNewIdea)
 
 	e.GET("/show", showIdeas)
-	e.GET("/shoe/notyet", notYetIdeas)
-	e.GET("/shoe/nowdoing", nowDoingIdeas)
+	e.GET("/show/notyet", notYetIdeas)
+	e.GET("/show/nowdoing", nowDoingIdeas)
 
 	port := os.Getenv("PORT")
 	if port == "" {
