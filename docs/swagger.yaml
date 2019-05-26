@@ -39,6 +39,12 @@ paths:
   /show:
     get:
       summary: "現在DBにあるアイデア一覧を返す"
+  /show/notyet:
+    get:
+        summary: "statusがnotYetのアイデア一覧を返す"
+  /shoe/nowdoing:
+    get:
+      summary: "statusがnowDoingのアイデア一覧を返す"
   /delete/{id}:
     delete:
       summary: "DB内の指定のidのアイデアを削除"

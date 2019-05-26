@@ -45,6 +45,8 @@ func main() {
 	e.POST("/newidea", addNewIdea)
 
 	e.GET("/show", showIdeas)
+	e.GET("/shoe/notyet", notYetIdeas)
+	e.GET("/shoe/nowdoing", nowDoingIdeas)
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -73,5 +75,17 @@ func addNewIdea(c echo.Context) error {
 func showIdeas(c echo.Context) error {
 	idealist := []Ideas{}
 	db.Select("*").Find(&idealist)
+	return c.JSON(http.StatusOK, idealist)
+}
+
+func notYetIdeas(c echo.Context) error {
+	idealist := []Ideas{}
+	db.Where("status = ?", "notYet").Find(&idealist)
+	return c.JSON(http.StatusOK, idealist)
+}
+
+func nowDoingIdeas(c echo.Context) error {
+	idealist := []Ideas{}
+	db.Where("status = ?", "nowDoing").Find(&idealist)
 	return c.JSON(http.StatusOK, idealist)
 }
