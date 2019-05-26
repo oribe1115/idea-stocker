@@ -2,5 +2,9 @@
 	"comment": "",
 	"ignore": "test",
 	"package": [],
-	"rootPath": "github.com/oribe1115/idea-stocker"
+	"rootPath": "github.com/oribe1115/idea-stocker",
+	"heroku": {
+		"install" : ["./..."],
+		"goVersion" : "go1.12.5"
+	}
 }
