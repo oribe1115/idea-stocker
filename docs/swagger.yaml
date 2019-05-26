@@ -45,3 +45,6 @@ paths:
   /change/{id}:
     put:
       summary: "指定のidのアイデアのステータスを変更"
+  /create:
+    get:
+      summary: "テーブルideasを作成する"
