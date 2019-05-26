@@ -45,6 +45,12 @@
 			"revisionTime": "2019-01-25T18:56:10Z"
 		},
 		{
+			"checksumSHA1": "F6mCaMfANCOCP8pLnk94HmRyVpg=",
+			"path": "github.com/lib/pq",
+			"revision": "2ff3cb3adc01768e0a552b3a02575a6df38a9bea",
+			"revisionTime": "2019-05-07T19:18:18Z"
+		},
+		{
 			"checksumSHA1": "TZ1sJQ03juGU53DFxbI1g7RgU50=",
 			"path": "github.com/mattn/go-colorable",
 			"revision": "8029fb3788e5a4a9c00e415f586a6d033f5d38b3",
