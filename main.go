@@ -17,6 +17,10 @@ type Ideas struct {
 	Idea      string    `json:"idea,omitempty"`
 }
 
+type OnlyIdea struct {
+	Idea string `json:"idea,omitempty"`
+}
+
 var (
 	db *gorm.DB
 )
@@ -38,7 +42,7 @@ func main() {
 
 	e.GET("/create", makeTable)
 
-	e.GET("/newidea", addNewIdea)
+	e.POST("/newidea", addNewIdea)
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -55,7 +59,9 @@ func makeTable(c echo.Context) error {
 }
 
 func addNewIdea(c echo.Context) error {
-	newIdea := Ideas{CreatedAt: time.Now(), Status: "nowDoing", Idea: "テスト"}
+	onlyidea := OnlyIdea{}
+	c.Bind(&onlyidea)
+	newIdea := Ideas{CreatedAt: time.Now(), Status: "notYet", Idea: onlyidea.Idea}
 	db.Create(&newIdea)
 	return c.JSON(http.StatusOK, newIdea)
 }
