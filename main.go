@@ -11,10 +11,10 @@ import (
 )
 
 type Ideas struct {
-	ID        uint `gorm:"primary_key"`
-	CreatedAt time.Time
-	Status    string
-	Idea      string
+	ID        uint      `gorm:"primary_key" json:"id,omitempty"`
+	CreatedAt time.Time `json:"created_at,omitempty"`
+	Status    string    `json:"status,omitempty"`
+	Idea      string    `json:"idea,omitempty"`
 }
 
 var (
@@ -38,6 +38,8 @@ func main() {
 
 	e.GET("/create", makeTable)
 
+	e.GET("/newidea", addNewIdea)
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "4000"
@@ -50,4 +52,10 @@ func makeTable(c echo.Context) error {
 	// 一度作ってみるのに使った後は間違って作りまくってしまわないようにコメントアウトでもしておくこと
 	db.CreateTable(&Ideas{})
 	return c.String(http.StatusOK, "Created!\n")
+}
+
+func addNewIdea(c echo.Context) error {
+	newIdea := Ideas{CreatedAt: time.Now(), Status: "nowDoing", Idea: "テスト"}
+	db.Create(&newIdea)
+	return c.JSON(http.StatusOK, newIdea)
 }
