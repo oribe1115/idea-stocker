@@ -44,6 +44,8 @@ func main() {
 
 	e.POST("/newidea", addNewIdea)
 
+	e.GET("/show", showIdeas)
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "4000"
@@ -64,4 +66,10 @@ func addNewIdea(c echo.Context) error {
 	newIdea := Ideas{CreatedAt: time.Now(), Status: "notYet", Idea: onlyidea.Idea}
 	db.Create(&newIdea)
 	return c.JSON(http.StatusOK, newIdea)
+}
+
+func showIdeas(c echo.Context) error {
+	idealist := []Ideas{}
+	db.Select("*").Find(&idealist)
+	return c.JSON(http.StatusOK, idealist)
 }
