@@ -61,9 +61,11 @@ func makeTable(c echo.Context) error {
 }
 
 func addNewIdea(c echo.Context) error {
+	jst := time.FixedZone("Asia/Tokyo", 9*60*60)
+
 	onlyidea := OnlyIdea{}
 	c.Bind(&onlyidea)
-	newIdea := Ideas{CreatedAt: time.Now(), Status: "notYet", Idea: onlyidea.Idea}
+	newIdea := Ideas{CreatedAt: time.Now().In(jst), Status: "notYet", Idea: onlyidea.Idea}
 	db.Create(&newIdea)
 	return c.JSON(http.StatusOK, newIdea)
 }
