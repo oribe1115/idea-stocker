@@ -15,6 +15,12 @@
 			"revisionTime": "2019-05-08T07:12:19Z"
 		},
 		{
+			"checksumSHA1": "0Pry12nZ6UQBd1iXEtszySSfFpI=",
+			"path": "github.com/jinzhu/gorm/dialects/postgres",
+			"revision": "b7156195f7f3415f97c20abbd6aff894b847fee8",
+			"revisionTime": "2019-05-08T07:12:19Z"
+		},
+		{
 			"checksumSHA1": "aw60jWFidzTWESLRrQs8ZYpcK84=",
 			"path": "github.com/labstack/echo",
 			"revision": "fbb72869b3b3a96631dd8c98d755efa7bc63c362",
