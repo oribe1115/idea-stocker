@@ -49,5 +49,5 @@ func main() {
 func makeTable(c echo.Context) error {
 	// 一度作ってみるのに使った後は間違って作りまくってしまわないようにコメントアウトでもしておくこと
 	db.CreateTable(&Ideas{})
-	return c.String(http.StatusOK, "Hello, World.\n")
+	return c.String(http.StatusOK, "Created!\n")
 }
