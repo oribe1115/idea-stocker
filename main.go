@@ -48,6 +48,8 @@ func main() {
 	e.GET("/show/notyet", notYetIdeas)
 	e.GET("/show/nowdoing", nowDoingIdeas)
 
+	e.GET("change/:id", changeStatus)
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "4000"
@@ -88,4 +90,17 @@ func nowDoingIdeas(c echo.Context) error {
 	idealist := []Ideas{}
 	db.Where("status = ?", "nowDoing").Find(&idealist)
 	return c.JSON(http.StatusOK, idealist)
+}
+
+func changeStatus(c echo.Context) error {
+	thisid := c.Param("id")
+	idea := Ideas{}
+	db.Where("id = ?", thisid).Find(&idea)
+	if idea.Status == "notYet" {
+		idea.Status = "nowDoing"
+	} else {
+		idea.Status = "notYet"
+	}
+	db.Save(&idea)
+	return c.JSON(http.StatusOK, idea)
 }
