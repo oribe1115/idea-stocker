@@ -50,6 +50,8 @@ func main() {
 
 	e.GET("change/:id", changeStatus)
 
+	e.GET("/delete/:id", deleteIdea)
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "4000"
@@ -103,4 +105,12 @@ func changeStatus(c echo.Context) error {
 	}
 	db.Save(&idea)
 	return c.JSON(http.StatusOK, idea)
+}
+
+func deleteIdea(c echo.Context) error {
+	thisid := c.Param("id")
+	idea := Ideas{}
+	db.Where("id = ?", thisid).Find(&idea)
+	db.Delete(&idea)
+	return c.String(http.StatusOK, "Deleted")
 }
