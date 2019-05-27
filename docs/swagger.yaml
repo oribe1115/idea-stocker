@@ -46,10 +46,10 @@ paths:
     get:
       summary: "statusがnowDoingのアイデア一覧を返す"
   /delete/{id}:
-    delete:
+    get:
       summary: "DB内の指定のidのアイデアを削除"
   /change/{id}:
-    put:
+    get:
       summary: "指定のidのアイデアのステータスを変更"
   /create:
     get:
