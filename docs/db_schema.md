@@ -2,9 +2,9 @@
 
 ## ideas
 
-| カラム名     | 型  | 属性 | 説明など                 |
-| :----------- | :-- | :--- | :----------------------- |
-| id           |     |      | ただの ID                |
-| created_at |     |      | 作成日時                 |
-| status       |     |      | 「nowDoing」or「notYet」 |
-| idea         |     |      | アイデアの内容           |
+| カラム名   | 型        | 属性 | 説明など                   |
+| :--------- | :-------- | :--- | :------------------------- |
+| id         | uint      |      | ただの ID 自動で更新される |
+| created_at | time.Time |      | 作成日時                   |
+| status     | string    |      | 「nowDoing」or「notYet」   |
+| idea       | string    |      | アイデアの内容             |
