@@ -34,23 +34,23 @@ paths:
                 type: "string"
                 example: "doggie"
   /newidea:
-    post:
-      summary: "新規のアイデアをDBに追加する"
-      parameters:
-        - name: newIdea
-          in: path
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - idea
-              properties:
-                idea:
-                  type: string
+    # post:
+    #   summary: "新規のアイデアをDBに追加する"
+    #   parameters:
+    #     - name: newIdea
+    #       in: path
+    #       schema:
+    #         type: string
+    #   requestBody:
+    #     content:
+    #       application/json:
+    #         schema:
+    #           type: object
+    #           required:
+    #             - idea
+    #           properties:
+    #             idea:
+    #               type: string
   /show:
     get:
       summary: "現在DBにあるアイデア一覧を返す"
